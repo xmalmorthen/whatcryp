@@ -1199,23 +1199,23 @@ def main(argv):
     wfile = open(outfile,'wb')
     print ("printing output to "+outfile+" ...")
     # writes page header
-    wfile.write('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"\n'.encode('utf-8'))
-    wfile.write('"http://www.w3.org/TR/html4/loose.dtd">\n'.encode('utf-8'))
-    wfile.write('<html><head><title>{}</title>\n'.format(owner).encode('utf-8'))
-    wfile.write('<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>\n'.encode('utf-8'))
-    wfile.write('<meta name="GENERATOR" content="WhatsApp Xtract v2.0"/>\n'.encode('utf-8'))
+    #wfile.write('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"\n'.encode('utf-8'))
+    #wfile.write('"http://www.w3.org/TR/html4/loose.dtd">\n'.encode('utf-8'))
+    #wfile.write('<html><head><title>{}</title>\n'.format(owner).encode('utf-8'))
+    #wfile.write('<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>\n'.encode('utf-8'))
+    #wfile.write('<meta name="GENERATOR" content="WhatsApp Xtract v2.0"/>\n'.encode('utf-8'))
     # adds page style
-    wfile.write(css_style.encode('utf-8'))
+    #wfile.write(css_style.encode('utf-8'))
     
     # adds javascript to make the tables sortable
     wfile.write('\n<script type="text/javascript">\n'.encode('utf-8'))
     wfile.write(popups.encode('utf-8'))
     wfile.write(sortable.encode('utf-8'))
     wfile.write('</script>\n\n'.encode('utf-8'))
-    wfile.write('</head><body>\n'.encode('utf-8'))
+    #wfile.write('</head><body>\n'.encode('utf-8'))
 
     # H1 Title
-    wfile.write('<h1>Zena Forensics<h1>'.encode('utf-8'))
+    #wfile.write('<h1>Zena Forensics<h1>'.encode('utf-8'))
 
     # H2 DB Owner
     wfile.write('<a name="top"></a><h2>'.encode('utf-8'))
@@ -1451,7 +1451,7 @@ def main(argv):
         wfile.write('</table>\n'.encode('utf-8'))
 
     # writes page footer        
-    wfile.write('</body></html>\n'.encode('utf-8'))
+    #wfile.write('</body></html>\n'.encode('utf-8'))
     wfile.close()
     print ("done!")
 

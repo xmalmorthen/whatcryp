@@ -16,7 +16,8 @@ class main extends CI_Controller {
                 if (is_array($data) && isset($data['success']) && $data['success']){
                     $this->load->library("decryptwhatsapp");
                     if ($this->decryptwhatsapp->do_decrypt($data)) {
-                        $data['whatsapp_xtract']['success'] = file_exists(APPPATH."views/".WHATSAPP_XTRACT_OUTPUT_VIEW."/{$data['whatsapp_xtract']['file_name']}.".EXT) ? TRUE : FALSE;                        
+//die(var_dump(APPPATH."views/".WHATSAPP_XTRACT_OUTPUT_VIEW."/{$data['whatsapp_xtract']['file_name']}".EXT));
+                        $data['whatsapp_xtract']['success'] = file_exists(APPPATH."views/".WHATSAPP_XTRACT_OUTPUT_VIEW."/{$data['whatsapp_xtract']['file_name']}".EXT) ? TRUE : FALSE;                        
                     }
                 }
             }
