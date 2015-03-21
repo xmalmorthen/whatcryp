@@ -7,7 +7,7 @@
     }
 </style>
 
-<form id="form_decrypter" action="" method="POST" enctype="multipart/form-data" class="form_decrypter">
+<form id="form_decrypter" action="<?php echo site_url('main/index'); ?>" method="POST" enctype="multipart/form-data" class="form_decrypter">
     <div class="form-group">
         <label for="userfile">Selecciona la base de datos</label>                        
         <input type="file" id="userfile" name="userfile" class="form-control" />            

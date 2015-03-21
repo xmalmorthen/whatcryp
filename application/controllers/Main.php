@@ -46,16 +46,20 @@ class main extends CI_Controller {
     }
     
     public function show_result(){        
-        $params = $this->session->flashdata('params');
-        $data = $params['data'];
-        $path_to_upload = $params['path_to_upload'];
+	try {
+	        $params = $this->session->flashdata('params');
+	        $data = $params['data'];
+	        $path_to_upload = $params['path_to_upload'];
         
-        $data['post'] = TRUE;
-        $data['whatsapp_xtract']['view'] = $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/{$params['view']}",NULL,TRUE);
-        @$this->uploader->remove_dir($path_to_upload, TRUE);
-        @unlink($data['whatsapp_xtract']['output_file']. EXT);
+	        $data['post'] = TRUE;
+	        $data['whatsapp_xtract']['view'] = $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/{$params['view']}",NULL,TRUE);
+	        @$this->uploader->remove_dir($path_to_upload, TRUE);
+	        @unlink($data['whatsapp_xtract']['output_file']. EXT);
         
-        $this->load->view('main',array('data' => $data));
+	        $this->load->view('main',array('data' => $data));
+	} catch (Exception $err){
+		redirect('main');
+	}
     }
     
 }
