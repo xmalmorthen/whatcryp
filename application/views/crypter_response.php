@@ -126,10 +126,10 @@
         });                
         
         $('table.display').DataTable({
-            dom: 'T<"clear">lfrtip',
-            tableTools: {
-                "sSwfPath": assets + "TableTools/swf/copy_csv_xls_pdf.swf"
-            }
+//            dom: 'T<"clear">lfrtip',
+//            tableTools: {
+//                "sSwfPath": assets + "/TableTools/swf/copy_csv_xls_pdf.swf"
+//            },
             "order": [[ 2, "desc" ]],
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Todo"]],
             "language": {
