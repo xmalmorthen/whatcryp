@@ -116,9 +116,10 @@
     $(document).ready(function() {
         hide_tables();
         
-        $("table img").each(function() {  
-            var assets = "<?php echo ASSETS; ?>",
-                imgsrc = assets + this.src;
+        $("table img").each(function() {
+            var assets = "<?php echo base_url(ASSETS); ?>",
+		segments = this.src.split('/'),
+                imgsrc = assets + '/' + segments[6] + '/' + segments[7] + '/' + segments[8];
             this.src = imgsrc;
         });
         
