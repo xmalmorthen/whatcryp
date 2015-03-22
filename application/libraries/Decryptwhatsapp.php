@@ -60,6 +60,8 @@ class decryptwhatsapp {
                 if (!file_exists(APPPATH."views/".WHATSAPP_XTRACT_OUTPUT_VIEW."/{$file_name}".EXT)){
                     throw new Exception($output . ' <br/>' . $output_err);
                 } else {
+                    $data['whatsapp_xtract']['success'] = TRUE;
+                    $data['whatsapp_xtract']['message'] = 'Base de datos procesada correctamente...!!!';
                     $data['whatsapp_xtract']['cmd_response'] = $output;
                     $data['whatsapp_xtract']['cmd_response_err'] = $output_err;
                     $data['whatsapp_xtract']['output_file'] = $output_file;

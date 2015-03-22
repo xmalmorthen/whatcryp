@@ -19,8 +19,8 @@ class main extends CI_Controller {
                     $this->load->library("decryptwhatsapp");
                     if ($this->decryptwhatsapp->do_decrypt($path_to_upload,$data)) {
                         $data['whatsapp_xtract']['view'] = $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/{$data['whatsapp_xtract']['file_name']}",NULL,TRUE);
-                        //$this->uploader->remove_dir($path_to_upload, TRUE);                                                
-                        //@unlink($data['whatsapp_xtract']['output_file']);
+                        $this->uploader->remove_dir($path_to_upload, TRUE);                                                
+                        @unlink($data['whatsapp_xtract']['output_file']);
                     }
                 }
             }
