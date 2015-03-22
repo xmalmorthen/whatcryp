@@ -66,7 +66,8 @@
 <script src="<?php echo base_url(JS . 'jquery-1.11.1.min.js'); ?>"></script>
 <script src="<?php echo base_url(JS . 'jquery.dataTables.min.js'); ?>"></script>
 
-$(document).ready(function() {
-    alert('ok');
-    $('#chatsession').DataTable();
-});
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#chatsession').DataTable();
+    });
+</script>
