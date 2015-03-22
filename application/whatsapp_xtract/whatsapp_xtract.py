@@ -1218,29 +1218,29 @@ def main(argv):
     #wfile.write('<h1>Zena Forensics<h1>'.encode('utf-8'))
 
     # H2 DB Owner
-    wfile.write('<a name="top"></a><h2>'.encode('utf-8'))
-    wfile.write('WhatsApp'.encode('utf-8'))
-    wfile.write('<img src="data/img/whatsapp.png" alt="" '.encode('utf-8'))
-    wfile.write('style="width:40px;height:40px;vertical-align:middle"/>'.encode('utf-8'))
-    wfile.write('Xtract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.encode('utf-8'))
-    if mode == IPHONE:
-        wfile.write('<img src="data/img/apple.png" alt="" '.encode('utf-8'))
-    elif mode == ANDROID:
-        wfile.write('<img src="data/img/android.png" alt="" '.encode('utf-8'))
-    wfile.write('style="width:35px;height:35px;"/>'.encode('utf-8'))
-    wfile.write('&nbsp;{}</h2>\n'.format(owner).encode('utf-8'))
+    #wfile.write('<a name="top"></a><h2>'.encode('utf-8'))
+    #wfile.write('WhatsApp'.encode('utf-8'))
+    #wfile.write('<img src="data/img/whatsapp.png" alt="" '.encode('utf-8'))
+    #wfile.write('style="width:40px;height:40px;vertical-align:middle"/>'.encode('utf-8'))
+    #wfile.write('Xtract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.encode('utf-8'))
+    #if mode == IPHONE:
+    #    wfile.write('<img src="data/img/apple.png" alt="" '.encode('utf-8'))
+    #elif mode == ANDROID:
+    #    wfile.write('<img src="data/img/android.png" alt="" '.encode('utf-8'))
+    #wfile.write('style="width:35px;height:35px;"/>'.encode('utf-8'))
+    #wfile.write('&nbsp;{}</h2>\n'.format(owner).encode('utf-8'))
 
     # writes 1st table header "CHAT SESSION"
-    wfile.write('<table class="sortable" id="chatsession" border="1" cellpadding="2" cellspacing="0">\n'.encode('utf-8'))
+    wfile.write('<table id="chatsession" class="display" cellspacing="0" width="100%" border="1" cellpadding="2" cellspacing="0">\n'.encode('utf-8'))
     wfile.write('<thead>\n'.encode('utf-8'))
     wfile.write('<tr>\n'.encode('utf-8'))
     wfile.write('<th>PK</th>\n'.encode('utf-8'))
-    wfile.write('<th>Contact Name</th>\n'.encode('utf-8'))
-    wfile.write('<th>Contact ID</th>\n'.encode('utf-8'))
-    wfile.write('<th>Status</th>\n'.encode('utf-8'))
+    wfile.write('<th>Nombre del Contacto</th>\n'.encode('utf-8'))
+    wfile.write('<th>ID de Contacto</th>\n'.encode('utf-8'))
+    wfile.write('<th>Estatus</th>\n'.encode('utf-8'))
     wfile.write('<th># Msg</th>\n'.encode('utf-8'))
-    wfile.write('<th># Unread Msg</th>\n'.encode('utf-8'))
-    wfile.write('<th>Last Message</th>\n'.encode('utf-8'))
+    wfile.write('<th># Msg sin leer</th>\n'.encode('utf-8'))
+    wfile.write('<th>Último Mensaje</th>\n'.encode('utf-8'))
     wfile.write('</tr>\n'.encode('utf-8'))
     wfile.write('</thead>\n'.encode('utf-8'))
     
