@@ -41,7 +41,7 @@
             <?php if (isset($whatsapp_xtract) && $whatsapp_xtract['success'] === TRUE) {?>
                 <h2>Resultado procesado</h2>
                 <div style="width: 100%;height: 600px;max-height: 600px;overflow: scroll;">
-                    <?php echo $whatsapp_xtract['file_name']['view']; ?>
+                    <?php echo $whatsapp_xtract['view']; ?>
                 </div> 
             <?php } else {?>
                 <div class="err_proc">
