@@ -1243,6 +1243,33 @@ def main(argv):
     wfile.write('<th>Último Mensaje</th>\n'.encode('utf-8'))
     wfile.write('</tr>\n'.encode('utf-8'))
     wfile.write('</thead>\n'.encode('utf-8'))
+	
+	# writes 1st table content
+    wfile.write('<tbody>\n'.encode('utf-8'))
+    for i in chat_session_list:
+        if i.contact_name == "N/A":
+            try:
+                i.contact_name = i.contact_id.split('@')[0]
+            except:
+                i.contact_name = i.contact_id
+            contactname = i.contact_name
+        else:
+            contactname = convertsmileys ( i.contact_name ) # chat name
+        contactstatus = convertsmileys ( str(i.contact_status) )
+        lastmessagedate = i.last_message_date
+        wfile.write('<tr>\n'.encode('utf-8'))
+        wfile.write('<td>{}</td>\n'.format(i.pk_cs).encode('utf-8'))
+        wfile.write('<td class="contact"><a href="#{}">{}</a></td>\n'.format(i.contact_name,contactname).encode('utf-8'))
+        wfile.write('<td class="contact">{}</td>\n'.format(i.contact_id).encode('utf-8'))
+        wfile.write('<td>{}</td>\n'.format(contactstatus).encode('utf-8'))
+        wfile.write('<td>{}</td>\n'.format(i.contact_msg_count).encode('utf-8'))
+        wfile.write('<td>{}</td>\n'.format(i.contact_unread_msg).encode('utf-8'))
+        wfile.write('<td>{}</td>\n'.format(lastmessagedate).encode('utf-8'))
+        wfile.write('</tr>\n'.encode('utf-8'))
+    wfile.write('</tbody>\n'.encode('utf-8'))
+    # writes 1st table footer
+    wfile.write('</table>\n'.encode('utf-8'))
+	
 
     # writes page footer        
     #wfile.write('</body></html>\n'.encode('utf-8'))
