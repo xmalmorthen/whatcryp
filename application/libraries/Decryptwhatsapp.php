@@ -9,12 +9,12 @@ class decryptwhatsapp {
         set_time_limit(0);
     }
     
-    public function do_decrypt(&$data){        
+    public function do_decrypt($database_folder,&$data){        
         try
         {
             $file_name = utils::get_uniqueidentifier();
             $output_file = WHATSAPP_XTRACT_OUTPUT_FOLDER . $file_name;
-            $cmd = PYTHON . ' ' . APPPATH . WHATSAPP_XTRACT_FOLDER . WHATSAPP_XTRACT . ' -i ' . DATABASE_PATH . '/' . $data['uploaded_file']['file_name'] . ' -o ' . $output_file;            
+            $cmd = PYTHON . ' ' . APPPATH . WHATSAPP_XTRACT_FOLDER . WHATSAPP_XTRACT . ' -i ' . $database_folder . '/' . $data['uploaded_file']['file_name'] . ' -o ' . $output_file;            
             ob_implicit_flush(true);		
             $exe_command = $cmd;
             $descriptorspec = array(
