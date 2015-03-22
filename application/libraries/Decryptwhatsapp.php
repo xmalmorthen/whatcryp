@@ -57,10 +57,14 @@ class decryptwhatsapp {
             if (!$output) {
                 throw new Exception($output_err);
             } else {
-                $data['whatsapp_xtract']['cmd_response'] = $output;
-                $data['whatsapp_xtract']['cmd_response_err'] = $output_err;
-                $data['whatsapp_xtract']['output_file'] = $output_file;
-                $data['whatsapp_xtract']['file_name'] = $file_name;
+                if (!file_exists(APPPATH."views/".WHATSAPP_XTRACT_OUTPUT_VIEW."/{$file_name}".EXT)){
+                    throw new Exception($output . ' <br/>' . $output_err);
+                } else {
+                    $data['whatsapp_xtract']['cmd_response'] = $output;
+                    $data['whatsapp_xtract']['cmd_response_err'] = $output_err;
+                    $data['whatsapp_xtract']['output_file'] = $output_file;
+                    $data['whatsapp_xtract']['file_name'] = $file_name;
+                }
                 return TRUE;
             }                        
         }
