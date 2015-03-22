@@ -13,6 +13,9 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url(BOOTSTRAP_CSS . 'bootstrap.min.css'); ?>" rel="stylesheet">
+    
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url(CSS . 'cover.css'); ?>" rel="stylesheet">
@@ -36,20 +39,19 @@
                 <div class="inner cover">
                     <h1 class="cover-heading">Whatsapp Decrypter.</h1>
                     <br/>
-                    <form action="" method="POST" enctype="multipart/form-data" style="text-align: left;">
-                        <div class="form-group">
-                            <label for="userfile">Selecciona la base de datos</label>                        
-                            <input type="file" id="userfile" name="userfile" class="form-control" />            
+                    <!-- form -->
+                    <div class="row">
+                        <?php echo $this->load->view('form_decrypter',NULL,TRUE); ?>
+                    </div>
+                    <!-- end - form -->
+                    <br/>    
+                    <?php if (isset($data) && $data['success'] === TRUE) { ?>
+                        <!-- cry response -->
+                        <div class="row">                    
+                            <?php echo $this->load->view('crypter_response',$data,TRUE); ?>                    
                         </div>
-                        <input type="submit" name="submit" value="Upload" class="btn btn-success pull-right" />
-                    </form>
-                    <?php if (isset($whatsapp_xtract) && $whatsapp_xtract['success'] === TRUE) {?>
-                        <br/><br/>
-                        <h1 class="cover-heading">Base de datos procesada.</h1>
-                        <div style="width: 100%;height: 600px;max-height: 600px;overflow: scroll;">
-                            <?php echo $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/{$whatsapp_xtract['file_name']}",NULL,TRUE); ?>
-                        </div>
-                    <?php }?>
+                        <!-- end - cry response -->
+                    <?php } ?> 
                 </div>
             </div>
         </div>

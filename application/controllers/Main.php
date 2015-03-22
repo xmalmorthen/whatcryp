@@ -9,19 +9,22 @@ class main extends CI_Controller {
         {
             $data = NULL;
 
-            if($this->input->post("submit")){                     
+            if($this->input->post("submit")){ 
                 $this->load->library("uploader");
-                $data = $this->uploader->do_upload();
+                
+                $path_to_upload = DATABASE_PATH . '/' . $_FILES['userfile']['name'] . '.' . utils::get_uniqueidentifier();
+                $data = $this->uploader->do_upload($path_to_upload);
                 
                 if (is_array($data) && isset($data['success']) && $data['success']){
                     $this->load->library("decryptwhatsapp");
-                    if ($this->decryptwhatsapp->do_decrypt($data)) {
-//die(var_dump(APPPATH."views/".WHATSAPP_XTRACT_OUTPUT_VIEW."/{$data['whatsapp_xtract']['file_name']}".EXT));
-                        $data['whatsapp_xtract']['success'] = file_exists(APPPATH."views/".WHATSAPP_XTRACT_OUTPUT_VIEW."/{$data['whatsapp_xtract']['file_name']}".EXT) ? TRUE : FALSE;                        
+                    if ($this->decryptwhatsapp->do_decrypt($data)) {                        
+                        $data['whatsapp_xtract']['file_name']['view'] = $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/{$whatsapp_xtract['file_name']}",NULL,TRUE);                        
+                        $this->uploader->remove_dir($path_to_upload, TRUE);                                                
+                        @unlink($data['whatsapp_xtract']['output_file']);
                     }
                 }
             }
-            $this->load->view('main',$data);
+            $this->load->view('main',array('data' => $data));
         }
         catch(Exception $err)
         {

@@ -29,31 +29,45 @@ class decryptwhatsapp {
             stream_set_blocking($pipes[1], 0);
             stream_set_blocking($pipes[2], 0);
 	
+            $output = '';
+            $output_err = '';
             if (is_resource($process))
-            {	
-                $output = '';
+            {	                
                 while( ! feof($pipes[1]))
                 {
-                        if ($this->time_end() >= 2) { 
-                                cancel($process);
-                                break;
-                        }
+                    if ($this->time_end() >= 30) { 
+                        cancel($process);
+                        break;
+                    }
 
-                        $return_message = fgets($pipes[1], 1024);
-                        if (strlen($return_message) == 0) break;
-                        $output .= $return_message .'<br />';
-                        ob_flush();
-                        flush();
+                    $output .= fgets($pipes[1], 1024);
+                    $output_err .= fgets($pipes[2], 1024);
                 }
-                @fclose($pipes[1]); 		
+                @fclose($pipes[1]);
+
+                if (empty($output)){
+                    while( ! feof($pipes[2]))
+                    {
+                        $output_err .= fgets($pipes[2], 1024);
+                    }
+                    @fclose($pipes[2]);
+                }
             }
-            $data['whatsapp_xtract']['cmd_response'] = $output;
-            $data['whatsapp_xtract']['output_file'] = $output_file;
-            $data['whatsapp_xtract']['file_name'] = $file_name;
-            return TRUE;
+            
+            if (!$output) {
+                throw new Exception($output_err);
+            } else {
+                $data['whatsapp_xtract']['cmd_response'] = $output;
+                $data['whatsapp_xtract']['cmd_response_err'] = $output_err;
+                $data['whatsapp_xtract']['output_file'] = $output_file;
+                $data['whatsapp_xtract']['file_name'] = $file_name;
+                return TRUE;
+            }                        
         }
         catch(Exception $err)
         {
+            $data['whatsapp_xtract']['success'] = FALSE;
+            $data['whatsapp_xtract']['message'] = $err->getMessage();
             return FALSE;
         }        
     }

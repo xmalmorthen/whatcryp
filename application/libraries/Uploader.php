@@ -5,36 +5,51 @@
  * @author Rana
  */
 class uploader {
-    var $config;
     public function __construct() {
         $this->ci =& get_instance();
+    }
+    
+    public function do_upload($path){        
+        $config =  array(
+            'upload_path'     => $path,
+            'allowed_types'   => "*",
+            'overwrite'       => TRUE
+        );      
         
-        $this->config =  array(
-                  'upload_path'     => DATABASE_PATH,
-                  'allowed_types'   => "*",
-                  'overwrite'       => TRUE
-                );
-    }
-    
-    public function do_upload(){        
-        //$this->remove_dir($this->config["upload_path"], false);
-        $data = array();
-        $this->ci->load->library('upload', $this->config);        
-        if($this->ci->upload->do_upload())
-        {
-            $data['message'] = "File Uploaded Successfully";
-            $data['success'] = TRUE;
-            $data['uploaded_file'] = $this->ci->upload->data();
-        }
-        else
-        {
-            $data['message'] = $this->ci->upload->display_errors();
+        if(!$this->add_dir($config['upload_path'])) {
+            $data['message'] = "Imposible crear directorio {$config['upload_path']}, favor de intentarlo mas tarde...!!!";
             $data['success'] = FALSE;
+        } else {                   
+            $data = array();
+            $this->ci->load->library('upload', $config); 
+
+            if($this->ci->upload->do_upload())
+            {
+                $data['message'] = "Archivo Cargado exitosamente...!!!";
+                $data['success'] = TRUE;
+                $data['uploaded_file'] = $this->ci->upload->data();
+            }
+            else
+            {            
+                $data['message'] = $this->ci->upload->display_errors();
+                $data['success'] = FALSE;
+            }
         }
-        return $data;
+        return $data;   
+        //$this->remove_dir($config["upload_path"], false);
     }
     
-    function remove_dir($dir, $DeleteMe) {
+    public function add_dir($dir,$permisions = 0777, $recursive = true) {
+        try
+        {
+            mkdir($dir, $permisions, $recursive);
+            return TRUE;
+        } catch(Exception $err) {
+            return FALSE;
+        } 
+    }
+    
+    public function remove_dir($dir, $DeleteMe) {
         if(!$dh = @opendir($dir)) return;
         while (false !== ($obj = readdir($dh))) {
             if($obj=='.' || $obj=='..') continue;
@@ -44,7 +59,6 @@ class uploader {
         closedir($dh);
         if ($DeleteMe){
             @rmdir($dir);
-        }
-    
+        }    
     }
 }
