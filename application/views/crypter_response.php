@@ -1,3 +1,5 @@
+<link href="<?php echo base_url(CSS . 'jquery.dataTables.css'); ?>" rel="stylesheet">
+
 <style type="text/css">    
     .crypter_response {
          text-align: left;
@@ -60,3 +62,10 @@
         </div>
     <?php }?>
 </div><!-- /.row -->
+
+<script src="<?php echo base_url(JS . 'jquery-1.11.1.min.js'); ?>"></script>
+<script src="<?php echo base_url(JS . 'jquery.dataTables.min.js'); ?>"></script>
+
+$(document).ready(function() {
+    $('#chatsession').DataTable();
+});
