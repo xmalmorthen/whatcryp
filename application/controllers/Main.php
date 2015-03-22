@@ -12,7 +12,7 @@ class main extends CI_Controller {
             if($this->input->post("submit")){ 
                 $this->load->library("uploader");
                 
-                $path_to_upload = DATABASE_PATH . '/' . $_FILES['userfile']['name'] . '.' . utils::get_uniqueidentifier();
+                $path_to_upload = DATABASE_PATH . '/' . utils::get_uniqueidentifier();
                 $data = $this->uploader->do_upload($path_to_upload);
                 
                 if (is_array($data) && isset($data['success']) && $data['success']){
