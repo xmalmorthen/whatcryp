@@ -79,11 +79,7 @@
         function showloader()
         {
             $.isLoading({ text: "Cargando..." });    
-        }
-        
-        <?php if (isset($data) && $data['success'] === TRUE) { ?>
-            $.isLoading({ text: "Cargando..." });
-        <?php } ?> 
+        } 
     </script>
     
   </body>
