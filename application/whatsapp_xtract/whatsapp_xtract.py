@@ -1200,7 +1200,7 @@ def main(argv):
     print ("printing output to "+outfile+" ...")
 
     # writes 1st header "CHAT SESSION"
-	wfile.write('<div id="session_list" style="display: none;">\n'.encode('utf-8'))		
+    wfile.write('<div id="session_list" style="display: none;">\n'.encode('utf-8'))		
     wfile.write('<ul id="chatsession">\n'.encode('utf-8'))
     for i in chat_session_list:
         if i.contact_name == "N/A":
@@ -1213,11 +1213,11 @@ def main(argv):
             contactname = convertsmileys ( i.contact_name ) # chat name
         contactstatus = convertsmileys ( str(i.contact_status) )
         lastmessagedate = i.last_message_date
-        wfile.write('<li><a href="#{}" data-toggle="tooltip" data-own=\'\"pk\": \"{}\", \"id\": \"{}\", \"status\": \"{}\", \"msg\": \"{}\", \"msg_nr\": \"{}\", \"msg_date\": \"{}\"\'>{}</a></li>\n'.format(i.contact_name,i.pk_cs,i.contact_id,contactstatus,i.contact_msg_count,i.contact_unread_msg,lastmessagedate,contactname).encode('utf-8'))
+        wfile.write('<li><a href="#msg_{}" data-toggle="tooltip" data-own=\'\"pk\": \"{}\", \"id\": \"{}\", \"status\": \"{}\", \"msg\": \"{}\", \"msg_nr\": \"{}\", \"msg_date\": \"{}\"\'>{}</a></li>\n'.format(i.contact_name,i.pk_cs,i.contact_id,contactstatus,i.contact_msg_count,i.contact_unread_msg,lastmessagedate,contactname).encode('utf-8'))
     wfile.write('</ul>\n'.encode('utf-8'))
-	wfile.write('</div>\n'.encode('utf-8'))		
+    wfile.write('</div>\n'.encode('utf-8'))		
 
-	global content_type
+    global content_type
 
     # writes a table for each chat session
     for i in chat_session_list:#
@@ -1227,7 +1227,7 @@ def main(argv):
         except:
             chatid = i.contact_id
         wfile.write('<h3>Chat session <a href="#top">#</a> {}: <a name="{}">{}</a></h3>\n'.format(i.pk_cs, i.contact_name, contactname).encode('utf-8'))
-        wfile.write('<table class="sortable" id="msg_{}" border="1" cellpadding="2" cellspacing="0">\n'.format(chatid).encode('utf-8'))
+        wfile.write('<table class="display compact dataTable" id="msg_{}" border="1" cellpadding="2" cellspacing="0">\n'.format(chatid).encode('utf-8'))
         wfile.write('<thead>\n'.encode('utf-8'))
         wfile.write('<tr>\n'.encode('utf-8'))
         wfile.write('<th>PK</th>\n'.encode('utf-8'))
