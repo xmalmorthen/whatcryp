@@ -32,6 +32,9 @@
     .section_session_list li i {
         margin-left: 80px;
     }
+    table.display{
+        color: #000;
+    }
     .tooltip_template_info{
        line-height: 2em;
        text-align: left;
