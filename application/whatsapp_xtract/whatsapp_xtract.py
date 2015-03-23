@@ -1200,6 +1200,7 @@ def main(argv):
     print ("printing output to "+outfile+" ...")
 
     # writes 1st header "CHAT SESSION"
+	wfile.write('<div id="session_list" style="display: none;">\n'.encode('utf-8'))		
     wfile.write('<ul id="chatsession">\n'.encode('utf-8'))
     for i in chat_session_list:
         if i.contact_name == "N/A":
@@ -1214,8 +1215,9 @@ def main(argv):
         lastmessagedate = i.last_message_date
         wfile.write('<li><a href="#{}" data-toggle="tooltip" data-own=\'\"pk\": \"{}\", \"id\": \"{}\", \"status\": \"{}\", \"msg\": \"{}\", \"msg_nr\": \"{}\", \"msg_date\": \"{}\"\'>{}</a></li>\n'.format(i.contact_name,i.pk_cs,i.contact_id,contactstatus,i.contact_msg_count,i.contact_unread_msg,lastmessagedate,contactname).encode('utf-8'))
     wfile.write('</ul>\n'.encode('utf-8'))
+	wfile.write('</div>\n'.encode('utf-8'))		
 
-global content_type
+	global content_type
 
     # writes a table for each chat session
     for i in chat_session_list:#
