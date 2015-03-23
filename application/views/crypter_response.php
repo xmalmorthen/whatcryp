@@ -20,6 +20,7 @@
         max-height: 800px;
         overflow: scroll;
         padding: 10px 20px;
+        border: 2px solid #494949;
     }
     .section_session_list {
         line-height: 2em;
