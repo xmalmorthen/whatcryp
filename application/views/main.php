@@ -13,6 +13,8 @@
 
     <link href="<?php echo base_url(CSS . 'jquery.dataTables.css'); ?>" rel="stylesheet">
     
+    <link href="<?php echo base_url(CSS . 'isloading.css'); ?>" rel="stylesheet">
+    
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url(BOOTSTRAP_CSS . 'bootstrap.min.css'); ?>" rel="stylesheet">
     
@@ -21,10 +23,9 @@
 
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url(CSS . 'cover.css'); ?>" rel="stylesheet">
-
-    
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="<?php echo base_url(JS . 'jquery.isloading.js'); ?>"></script>
     
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="<?php echo base_url(JS . 'ie8-responsive-file-warning.js'); ?>"></script><![endif]-->
@@ -72,5 +73,14 @@
     
     <script src="<?php echo base_url(JS . 'jquery.dataTables.min.js'); ?>"></script>
     <script src="<?php echo base_url(JS . 'tooltip.js'); ?>"></script>
+    
+    <script type="text/javascript">
+        window.onbeforeunload = showloader;
+        function showloader()
+        {
+            $.isLoading({ text: "Cargando..." });    
+        }
+    </script>
+    
   </body>
 </html>
