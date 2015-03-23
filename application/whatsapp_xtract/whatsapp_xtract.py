@@ -1213,7 +1213,8 @@ def main(argv):
         contactstatus = convertsmileys ( str(i.contact_status) )
         lastmessagedate = i.last_message_date
 		wfile.write('<li><a href="#{}" data-toggle="tooltip" data-own='{ "pk": {}, "id": "{}", "status": "{}", "msg": "{}", "msg_nr": "{}", "msg_date": "{}" }'>{}</a></li>\n'.format(i.contact_name,i.pk_cs,i.contact_id,contactstatus,i.contact_msg_count,i.contact_unread_msg,lastmessagedate,contactname).encode('utf-8'))
-    wfile.close()
+    wfile.write('</ul">\n'.encode('utf-8'))
+	wfile.close()
     print ("done!")
 
 ##### GLOBAL variables #####
