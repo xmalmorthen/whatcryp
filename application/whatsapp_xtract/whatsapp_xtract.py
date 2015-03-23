@@ -1213,7 +1213,7 @@ def main(argv):
             contactname = convertsmileys ( i.contact_name ) # chat name
         contactstatus = convertsmileys ( str(i.contact_status) )
         lastmessagedate = i.last_message_date
-        wfile.write('<li><a href="#{}" data-toggle="tooltip" data-own=\'\"pk\": \"{}\", \"id\": \"{}\", \"status\": \"{}\", \"msg\": \"{}\", \"msg_nr\": \"{}\", \"msg_date\": \"{}\"\'>{}</a></li>\n'.format(i.contact_name,i.pk_cs,i.contact_id,contactstatus,i.contact_msg_count,i.contact_unread_msg,lastmessagedate,contactname).encode('utf-8'))
+        wfile.write('<li><a href="#msg_{}" data-toggle="tooltip" data-own=\'\"pk\": \"{}\", \"id\": \"{}\", \"status\": \"{}\", \"msg\": \"{}\", \"msg_nr\": \"{}\", \"msg_date\": \"{}\"\'>{}</a></li>\n'.format(i.contact_name,i.pk_cs,i.contact_id,contactstatus,i.contact_msg_count,i.contact_unread_msg,lastmessagedate,contactname).encode('utf-8'))
     wfile.write('</ul>\n'.encode('utf-8'))
     wfile.write('</div>\n'.encode('utf-8'))		
 
@@ -1226,18 +1226,19 @@ def main(argv):
             chatid = i.contact_id.split('@')[0]
         except:
             chatid = i.contact_id
-        wfile.write('<h3>Chat session <a href="#top">#</a> {}: <a name="{}">{}</a></h3>\n'.format(i.pk_cs, i.contact_name, contactname).encode('utf-8'))
+        wfile.write('<div class="table_section">').encode('utf-8'))
+        wfile.write('<h3>Sesión de Chat #{}: {}</h3>\n'.format(i.pk_cs, contactname).encode('utf-8'))
         wfile.write('<table class="display compact dataTable" id="msg_{}" border="1" cellpadding="2" cellspacing="0">\n'.format(chatid).encode('utf-8'))
         wfile.write('<thead>\n'.encode('utf-8'))
         wfile.write('<tr>\n'.encode('utf-8'))
         wfile.write('<th>PK</th>\n'.encode('utf-8'))
-        wfile.write('<th>Chat</th>\n'.encode('utf-8'))
-        wfile.write('<th>Msg date</th>\n'.encode('utf-8'))
-        wfile.write('<th>From</th>\n'.encode('utf-8'))
-        wfile.write('<th>Msg content</th>\n'.encode('utf-8'))
-        wfile.write('<th>Msg status</th>\n'.encode('utf-8'))
-        wfile.write('<th>Media Type</th>\n'.encode('utf-8'))
-        wfile.write('<th>Media Size</th>\n'.encode('utf-8'))
+        wfile.write('<th>Para</th>\n'.encode('utf-8'))
+        wfile.write('<th>Fecha de Msg</th>\n'.encode('utf-8'))
+        wfile.write('<th>De</th>\n'.encode('utf-8'))
+        wfile.write('<th>Contenido de Msg</th>\n'.encode('utf-8'))
+        wfile.write('<th>Msg Estatus</th>\n'.encode('utf-8'))
+        wfile.write('<th>Tipo de Msg</th>\n'.encode('utf-8'))
+        wfile.write('<th>Tamaño de Msg</th>\n'.encode('utf-8'))
         wfile.write('</tr>\n'.encode('utf-8'))
         wfile.write('</thead>\n'.encode('utf-8'))
 
@@ -1396,6 +1397,7 @@ def main(argv):
         wfile.write('</tbody>\n'.encode('utf-8'))       
         # writes 1st table footer
         wfile.write('</table>\n'.encode('utf-8'))
+        wfile.write('</div>').encode('utf-8'))
 
     wfile.close()
     print ("done!")

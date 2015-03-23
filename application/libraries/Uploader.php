@@ -12,7 +12,7 @@ class uploader {
     public function do_upload($path){        
         $config =  array(
             'upload_path'     => $path,
-            'allowed_types'   => "*",
+            'allowed_types'   => "crypt|db|sqlite",
             'overwrite'       => TRUE
         );      
         

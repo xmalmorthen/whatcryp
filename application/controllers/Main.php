@@ -3,18 +3,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class main extends CI_Controller {
 
+    public function login(){   
+        $this->load->helper('form');
+        
+        if($this->input->post("submit")){
+            $usr = $this->input->post("usr");
+            $pdw = $this->input->post("pwd");
+            
+            
+            
+        }
+        $this->load->view('login');
+    }
+    
     public function index()
     {
         try
         {
-            $data = NULL;
-
-            if($this->input->post("submit")){ 
+            $data['post'] = FALSE;
+            if($this->input->post("submit")){
                 $this->load->library("uploader");
                 
                 $path_to_upload = DATABASE_PATH . '/' . utils::get_uniqueidentifier();
                 $data = $this->uploader->do_upload($path_to_upload);
-                
                 if (is_array($data) && isset($data['success']) && $data['success']){
                     $this->load->library("decryptwhatsapp");
                     if ($this->decryptwhatsapp->do_decrypt($path_to_upload,$data)) {
@@ -23,6 +34,11 @@ class main extends CI_Controller {
                         @unlink($data['whatsapp_xtract']['output_file']. EXT);
                     }                    
                 }
+                
+                $data['whatsapp_xtract']['success'] = TRUE;
+                $data['whatsapp_xtract']['message'] = 'Base de datos procesada correctamente...!!!';
+                $data['whatsapp_xtract']['view'] = $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/550d730710cf6",NULL,TRUE);
+                $data['post'] = TRUE;
             }
             $this->load->view('main',array('data' => $data));
         }

@@ -51,14 +51,14 @@
                         <?php echo $this->load->view('form_decrypter',NULL,TRUE); ?>
                     </div>
                     <!-- end - form -->
-                    <br/>    
-                    <?php if (isset($data) && $data['success'] === TRUE) { ?>
-                        <!-- cry response -->
-                        <div class="row">                    
-                            <?php echo $this->load->view('crypter_response',$data,TRUE); ?>                    
-                        </div>
-                        <!-- end - cry response -->
-                    <?php } ?> 
+                    <br/><br/><br/>
+                    <?php if ($data['post']) { ?>
+                    <!-- cry response -->
+                    <div class="row">                    
+                        <?php echo $this->load->view('crypter_response',$data,TRUE); ?>                    
+                    </div>
+                    <!-- end - cry response -->
+                    <?php } ?>
                 </div>
             </div>
         </div>

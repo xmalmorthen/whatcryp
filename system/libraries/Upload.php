@@ -412,7 +412,7 @@ class CI_Upload {
 		if ( ! is_uploaded_file($_file['tmp_name']))
 		{
 			$error = isset($_file['error']) ? $_file['error'] : 4;
-
+                        
 			switch ($error)
 			{
 				case UPLOAD_ERR_INI_SIZE:
@@ -459,7 +459,7 @@ class CI_Upload {
 		$this->file_name = $this->_prep_filename($_file['name']);
 		$this->file_ext	 = $this->get_extension($this->file_name);
 		$this->client_name = $this->file_name;
-                
+               
                 // Is the file type allowed to be uploaded?
 		if ( ! $this->is_allowed_filetype())
 		{
@@ -864,7 +864,7 @@ class CI_Upload {
 	 * @param	bool	$ignore_mime
 	 * @return	bool
 	 */
-	public function is_allowed_filetype($ignore_mime = FALSE)
+	public function is_allowed_filetype($ignore_mime = TRUE)
 	{            
 		if ($this->allowed_types === '*')
 		{
@@ -877,24 +877,24 @@ class CI_Upload {
 			return FALSE;
 		}
 
-		$ext = strtolower(ltrim($this->file_ext, '.'));
-
+		$ext = strtolower(ltrim($this->file_ext, '.'));                
+                
 		if ( ! in_array($ext, $this->allowed_types, TRUE))
 		{
 			return FALSE;
 		}
-
+               
 		// Images get some additional checks
 		if (in_array($ext, array('gif', 'jpg', 'jpeg', 'jpe', 'png'), TRUE) && @getimagesize($this->file_temp) === FALSE)
 		{
 			return FALSE;
 		}
-
+                
 		if ($ignore_mime === TRUE)
 		{
 			return TRUE;
 		}
-
+               
 		if (isset($this->_mimes[$ext]))
 		{
 			return is_array($this->_mimes[$ext])

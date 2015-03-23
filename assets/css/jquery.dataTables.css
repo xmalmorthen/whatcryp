@@ -5,14 +5,17 @@ table.dataTable {
   width: 100%;
   margin: 0 auto;
   clear: both;
-  border-collapse: separate;
-  border-spacing: 0;
+  //border-collapse: separate;
+  //border-spacing: 0;
   /*
    * Header and footer styles
    */
   /*
    * Body styles
    */
+}
+table.dataTable thead tr {
+    background-color: #7B7878;
 }
 table.dataTable thead th,
 table.dataTable tfoot th {
@@ -332,7 +335,7 @@ table.dataTable td {
   text-decoration: none !important;
   cursor: pointer;
   *cursor: hand;
-  color: #333333 !important;
+  //color: #333333 !important;
   border: 1px solid transparent;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
@@ -363,17 +366,17 @@ table.dataTable td {
   color: white !important;
   border: 1px solid #111111;
   background-color: #585858;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #585858), color-stop(100%, #111111));
+  //background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #585858), color-stop(100%, #111111));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #585858 0%, #111111 100%);
+  //background: -webkit-linear-gradient(top, #585858 0%, #111111 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -moz-linear-gradient(top, #585858 0%, #111111 100%);
+  //background: -moz-linear-gradient(top, #585858 0%, #111111 100%);
   /* FF3.6+ */
-  background: -ms-linear-gradient(top, #585858 0%, #111111 100%);
+  //background: -ms-linear-gradient(top, #585858 0%, #111111 100%);
   /* IE10+ */
-  background: -o-linear-gradient(top, #585858 0%, #111111 100%);
+  //background: -o-linear-gradient(top, #585858 0%, #111111 100%);
   /* Opera 11.10+ */
-  background: linear-gradient(to bottom, #585858 0%, #111111 100%);
+  //background: linear-gradient(to bottom, #585858 0%, #111111 100%);
   /* W3C */
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button:active {
@@ -423,7 +426,7 @@ table.dataTable td {
 .dataTables_wrapper .dataTables_info,
 .dataTables_wrapper .dataTables_processing,
 .dataTables_wrapper .dataTables_paginate {
-  color: #333333;
+  //color: #333333;
 }
 .dataTables_wrapper .dataTables_scroll {
   clear: both;
