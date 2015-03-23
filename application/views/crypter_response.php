@@ -103,7 +103,13 @@
 </div><!-- /.row -->
 
 <script type="text/javascript">
-    $(document).ready(function() {        
+    $(document).ready(function() {
+        $.isLoading({ text: "Cargando..." });
+        setTimeout( function(){ 
+            $.isLoading( "hide" );
+        }, 2000 );
+        
+        
         $('#section_session_list').append($('#session_list').html());
         
         $('[data-toggle="tooltip"]').tooltip({
