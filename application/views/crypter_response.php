@@ -126,6 +126,6 @@
             $(this).parent().append('<i class="fa fa-check sel_seccion_icon"></i>');               
         });
         
-        $('#msg_5215527411341').DataTable();
+        $('table.display').DataTable();
     });
 </script>
