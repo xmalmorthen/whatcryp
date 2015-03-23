@@ -80,6 +80,7 @@
         {
             $.isLoading({ text: "Cargando..." });    
         }
+        $.isLoading({ text: "Cargando..." });
     </script>
     
   </body>

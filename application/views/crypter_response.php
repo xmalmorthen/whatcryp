@@ -103,7 +103,6 @@
 </div><!-- /.row -->
 
 <script type="text/javascript">
-    $.isLoading({ text: "Cargando..." });
     $(document).ready(function() {
         setTimeout( function(){ 
             $.isLoading( "hide" );
