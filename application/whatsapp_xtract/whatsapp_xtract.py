@@ -1213,7 +1213,7 @@ def main(argv):
             contactname = convertsmileys ( i.contact_name ) # chat name
         contactstatus = convertsmileys ( str(i.contact_status) )
         lastmessagedate = i.last_message_date
-        wfile.write('<li><a href="#msg_{}" data-toggle="tooltip" data-own=\'\"pk\": \"{}\", \"id\": \"{}\", \"status\": \"{}\", \"msg\": \"{}\", \"msg_nr\": \"{}\", \"msg_date\": \"{}\"\'>{}</a></li>\n'.format(i.contact_name,i.pk_cs,i.contact_id,contactstatus,i.contact_msg_count,i.contact_unread_msg,lastmessagedate,contactname).encode('utf-8'))
+        wfile.write('<li><a href="#{}" data-toggle="tooltip" data-own=\'\"pk\": \"{}\", \"id\": \"{}\", \"status\": \"{}\", \"msg\": \"{}\", \"msg_nr\": \"{}\", \"msg_date\": \"{}\"\'>{}</a></li>\n'.format(i.contact_name,i.pk_cs,i.contact_id,contactstatus,i.contact_msg_count,i.contact_unread_msg,lastmessagedate,contactname).encode('utf-8'))
     wfile.write('</ul>\n'.encode('utf-8'))
     wfile.write('</div>\n'.encode('utf-8'))		
 
@@ -1397,7 +1397,7 @@ def main(argv):
         # writes 1st table footer
         wfile.write('</table>\n'.encode('utf-8'))
 
-	wfile.close()
+    wfile.close()
     print ("done!")
 
 ##### GLOBAL variables #####
