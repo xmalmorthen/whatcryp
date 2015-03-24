@@ -11,3 +11,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	http://codeigniter.com/user_guide/general/hooks.html
 |
 */
+
+$hook['post_controller_constructor'][] = array(
+    'class'    => 'verifyuser',
+    'function' => 'validateUser',
+    'filename' => 'verifyuser.php',
+    'filepath' => 'hooks',
+    'params'   => array('login','log') // Aqui va el array con los nombres de controlador que NO necesita verificacion de acceso.
+);
+
+$hook['display_override'][] = array(
+    'class'    => 'parseoutput',
+    'function' => 'do_output',
+    'filename' => 'parseoutput.php',
+    'filepath' => 'hooks'
+);

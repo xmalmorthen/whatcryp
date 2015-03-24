@@ -423,7 +423,7 @@ class CI_Form_validation {
 		{
 			return FALSE;
 		}
-
+                
 		// Does the _field_data array containing the validation rules exist?
 		// If not, we look to see if they were assigned via a config file
 		if (count($this->_field_data) === 0)
@@ -453,7 +453,7 @@ class CI_Form_validation {
 
 		// Load the language file containing error messages
 		$this->CI->lang->load('form_validation');
-
+                
 		// Cycle through the rules for each field and match the corresponding $validation_data item
 		foreach ($this->_field_data as $field => $row)
 		{
@@ -481,8 +481,8 @@ class CI_Form_validation {
 			}
 
 			$this->_execute($row, $row['rules'], $this->_field_data[$field]['postdata']);
-		}
-
+		}                
+               
 		// Did we end up with any errors?
 		$total_errors = count($this->_error_array);
 		if ($total_errors > 0)

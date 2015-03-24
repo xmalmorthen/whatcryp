@@ -101,3 +101,7 @@ define("WHATSAPP_XTRACT","whatsapp_xtract.py");
 define("WHATSAPP_XTRACT_OUTPUT_VIEW",'whatsapp_xtract_output');
 define("WHATSAPP_XTRACT_OUTPUT_FOLDER",APPPATH . 'views/' . WHATSAPP_XTRACT_OUTPUT_VIEW . '/');
 
+define("MASTER_PAGE_TITLE", 'Whatsapp Decrypter'); 
+
+define("USR", 'xmalmorthen');
+define("PWD", '..121212qw');

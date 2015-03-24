@@ -2,20 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class main extends CI_Controller {
-
-    public function login(){   
-        $this->load->helper('form');
-        
-        if($this->input->post("submit")){
-            $usr = $this->input->post("usr");
-            $pdw = $this->input->post("pwd");
-            
-            
-            
-        }
-        $this->load->view('login');
-    }
-    
     public function index()
     {
         try
@@ -49,7 +35,7 @@ class main extends CI_Controller {
         }
     }
     
-    public function loadxtract($view){
-        $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW . '/' . $view);
+    public function administracion(){
+        
     }
 }
