@@ -10,7 +10,8 @@ class users extends CI_Model{
         $user_session = array(
             'user_session'  => TRUE,
             'id'            => $data['id'],
-            'username'      => $data['username']
+            'username'      => $data['username'],
+            'nombre'        => $data['nombre_completo']
         );
         $this->session->set_userdata($user_session);
     }
@@ -19,7 +20,8 @@ class users extends CI_Model{
         $array_items = array(
             'user_session',
             'id',
-            'username'
+            'username',
+            'nombre'
         );
         $this->session->unset_userdata($array_items);        
     }
@@ -52,6 +54,7 @@ class users extends CI_Model{
             'correo'    => 'xmal.morthen@gmail.com',
             'perfil'    => 1
         );
+        $data['nombre_completo'] = trim($data['nombre']) . ' ' . trim($data['ap1']) . ' ' . trim($data['ap2']);
         return $data;
     }
     
@@ -59,7 +62,8 @@ class users extends CI_Model{
         if (!$this->verify_session()) return NULL;
         $data = array(
             'id'        => $this->session->userdata('id'),
-            'username'  => $this->session->userdata('username')
+            'username'  => $this->session->userdata('username'),
+            'nombre'    => $this->session->userdata('nombre')
         );
         return $data;
     }

@@ -16,12 +16,13 @@ class main extends CI_Controller {
             if($this->input->post("submit")){
                 $path_to_upload = DATABASE_PATH . '/' . utils::get_uniqueidentifier();
                 $data = $this->uploader->do_upload($path_to_upload);
+                $data['post'] = TRUE;
                 if (is_array($data) && isset($data['success']) && $data['success']){
                     $this->load->library("decryptwhatsapp");
                     if ($this->decryptwhatsapp->do_decrypt($path_to_upload,$data)) {                         
                         $data['whatsapp_xtract']['success'] = TRUE;
                         $data['whatsapp_xtract']['message'] = 'Base de datos procesada correctamente...!!!'; 
-                        $data['post'] = TRUE;
+                        
                         $params = array(
                             'data'  => $data,
                             'path_to_upload' => $path_to_upload,

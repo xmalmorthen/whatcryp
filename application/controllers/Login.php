@@ -7,7 +7,7 @@ class login extends CI_Controller {
         parent::__construct();       
         $this->load->helper('form');
         
-        /*$array_items = array('user_session','id','username');
+        /*$array_items = array('user_session','id','username','nombre');
         $this->session->unset_userdata($array_items);
         die();*/
         

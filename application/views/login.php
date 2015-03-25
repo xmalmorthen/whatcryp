@@ -40,7 +40,7 @@
                       <label for="inputEmail3" class="col-sm-3 control-label">Usuario</label>
                       <div class="col-sm-9" style="text-align: left;">
                           <i class="fa fa-user fa-4x"></i>
-                          <input type="text" class="form-control" id="usr" name="usr" placeholder="Usuario" autofocus="true" value="<?php echo set_value('usr'); ?>">
+                          <input type="text" class="form-control" id="usr" name="usr" placeholder="Usuario" autofocus="true" value="<?php //echo set_value('usr'); ?>">
                           <?php echo form_error('usr'); ?>
                       </div>
                     </div>
@@ -48,7 +48,7 @@
                       <label for="inputPassword3" class="col-sm-3 control-label">Contraseña</label>
                       <div class="col-sm-9" style="text-align: left;">
                           <i class="fa fa-key fa-4x"></i>
-                          <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Contraseña" value="<?php echo set_value('pwd'); ?>">
+                          <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Contraseña" value="<?php //echo set_value('pwd'); ?>">
                           <?php echo form_error('pwd'); ?>
                       </div>
                     </div>                                    
