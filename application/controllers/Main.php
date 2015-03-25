@@ -30,7 +30,8 @@ class main extends CI_Controller {
                 }
                 
                 $data['whatsapp_xtract']['success'] = TRUE;
-                $data['whatsapp_xtract']['message'] = 'Base de datos procesada correctamente...!!!';                
+                $data['whatsapp_xtract']['message'] = 'Base de datos procesada correctamente...!!!'; 
+                $data['post'] = TRUE;
                 $this->session->set_flashdata('params',$params);
                 redirect("main/show_result");                
             }
