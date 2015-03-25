@@ -1226,7 +1226,7 @@ def main(argv):
             chatid = i.contact_id.split('@')[0]
         except:
             chatid = i.contact_id
-        wfile.write('<div class="table_section">\n').encode('utf-8'))
+        wfile.write('<div class="table_section">\n'.encode('utf-8'))
         wfile.write('<h3>Sesión de Chat #{}: {}</h3>\n'.format(i.pk_cs, contactname).encode('utf-8'))
         wfile.write('<table class="display compact dataTable" id="msg_{}" border="1" cellpadding="2" cellspacing="0">\n'.format(chatid).encode('utf-8'))
         wfile.write('<thead>\n'.encode('utf-8'))
@@ -1397,7 +1397,7 @@ def main(argv):
         wfile.write('</tbody>\n'.encode('utf-8'))       
         # writes 1st table footer
         wfile.write('</table>\n'.encode('utf-8'))
-        wfile.write('</div>\n').encode('utf-8'))
+        wfile.write('</div>\n'.encode('utf-8'))
 
     wfile.close()
     print ("done!")
