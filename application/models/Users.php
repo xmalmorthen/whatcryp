@@ -9,7 +9,7 @@ class users extends CI_Model{
                         
         $user_session = array(
             'user_session'  => TRUE,
-            'id'            => $data['id_user'],
+            'id'            => $data['id'],
             'username'      => $data['username']
         );
         $this->session->set_userdata($user_session);
