@@ -25,7 +25,7 @@
 
 <div class="inner cover">                    
     <div class="row">
-        <div class="col-sm-6 col-md-4 col-md-offset-4 form_content" >                            
+        <div class="col-sm-6 col-md-8 col-md-offset-2 form_content" >                            
             <h1 class="text-center login-title">Inicie sesión</h1>
             <br/>
             <?php if ($this->session->flashdata('err_login') != NULL) { ?>

@@ -28,7 +28,7 @@
         margin-left: 80px;
     }
     #chatsession {
-        margin-left: 37px;
+        margin-left: 15px;
     }
     table.display{
         color: #000;
@@ -143,7 +143,7 @@
             var $obj = $($(this).attr('href')).parent().parent();    
             hide_tables();            
             show_table($obj);
-            $(this).parent().append('<i class="fa fa-check sel_seccion_icon"></i>');
+            $(this).parent().append('<i class="fa fa-check sel_seccion_icon" style="display: inline;"></i>');
         });
                         
         show_table ($('.table_section:first'));

@@ -43,7 +43,7 @@ class users extends CI_Model{
          * Implementar funcionalidad para obtener usuario de bd
          */
         $data = array(
-            'id_user'   => 1,
+            'id'   => 1,
             'username'  => 'xmalmorthen',
             'pwd'       => '..121212qw',
             'ap1'       => 'Morthen',
@@ -72,10 +72,7 @@ class users extends CI_Model{
     public function get_user_profile($id,$usr){
         if (!$this->verify_session()) return NULL;
         
-        
-        die(var_dump($this->verify_session()));
-        
-        $data = $this->get_user($usr);
+        $data = $this->get_user($usr);        
         if ($data['id'] == $id && $data['username'] == $usr){
             return  $data['perfil'];
         } else {

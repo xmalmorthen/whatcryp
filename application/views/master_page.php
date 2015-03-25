@@ -30,7 +30,8 @@
     <div class="site-wrapper">
         <div class="site-wrapper-inner">
             <div class="cover-container">
-                <?php echo $this->load->view('logged',array('opts_mnu' => $mnu),TRUE); ?>
+                <?php echo $this->load->view('logged',array('opts_mnu' => $mnu),TRUE);
+                      echo "<div style='margin-top: 90px;'>&nbsp</div>";?>
                 <?php echo $content ?>                
             </div>
         </div>

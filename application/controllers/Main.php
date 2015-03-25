@@ -21,9 +21,10 @@ class main extends CI_Controller {
                     }                    
                 }
                 
-                $data['whatsapp_xtract']['success'] = TRUE;
+                /*$data['whatsapp_xtract']['success'] = TRUE;
                 $data['whatsapp_xtract']['message'] = 'Base de datos procesada correctamente...!!!';
-                $data['whatsapp_xtract']['view'] = $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/550d730710cf6",NULL,TRUE);
+                $data['whatsapp_xtract']['view'] = $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/550d730710cf6",NULL,TRUE);*/
+                
                 $data['post'] = TRUE;
             }
             $this->load->view('main',array('data' => $data));
