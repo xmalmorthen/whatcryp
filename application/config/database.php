@@ -59,25 +59,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 
+# incluir libreria de configuracion
+require_once(APPPATH.'libraries/ini_cnfg.php');
+
+$ini = parse_ini_file("config.ini", true);
+
 $active_group = 'default';
-$query_builder = TRUE;
+$active_record = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
-	'dbdriver' => 'mysqli',
+	'hostname' => $ini['database_data']['bd_Hostname'],
+	'username' => $ini['database_data']['bd_UserName'],
+	'password' => $ini['database_data']['bd_Pass'],
+	'database' => $ini['database_data']['bd_Database'],
+	'dbdriver' => $ini['database_data']['bd_Adapter'],
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => TRUE,
-	'cache_on' => FALSE,
+	'db_debug' => ($ini['general']['environment'] == 'production') ? FALSE : TRUE,
+	'cache_on' => TRUE,
 	'cachedir' => '',
 	'char_set' => 'utf8',
 	'dbcollat' => 'utf8_general_ci',
 	'swap_pre' => '',
-	'encrypt' => FALSE,
+	'encrypt'  => FALSE,
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),

@@ -53,7 +53,4 @@ class main extends CI_Controller {
         $this->load->view('main',array('data' => $data));
     }
     
-    public function administracion(){
-        
-    }
 }

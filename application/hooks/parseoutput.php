@@ -4,11 +4,15 @@ class parseoutput{
     public function do_output(){
         $CI = & get_instance();    
 
+        $controller = $CI->router->class;
+        
         $data_user = $CI->users->get_user();        
         $profile = $CI->users->get_user_profile($data_user['id'],$data_user['username']);        
         $menu = $this->make_menu($profile);
         
-	$CI->output->set_output($CI->load->view('master_page',array('content' => $CI->output->get_output(), 'mnu' => $menu['html']),TRUE));
+        if ($controller != 'log') {        
+            $CI->output->set_output($CI->load->view('master_page',array('content' => $CI->output->get_output(), 'mnu' => $menu['html']),TRUE));
+        }
 	$CI->output->_display();
     }	
     
