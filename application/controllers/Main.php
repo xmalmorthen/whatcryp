@@ -24,7 +24,7 @@ class main extends CI_Controller {
                             'path_to_upload' => $path_to_upload,
                             'view'  => $data['whatsapp_xtract']['file_name']
                         );
-                        $this->session->set_flashdata('view',$params);
+                        $this->session->set_flashdata('params',$params);
                         redirect("main/show_result");
                     }                    
                 }
