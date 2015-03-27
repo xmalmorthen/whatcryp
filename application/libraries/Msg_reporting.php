@@ -15,7 +15,7 @@ class msg_reporting {
  * Parámetros:
  *        Entrada: $e - instancia de clase error
  */     
-    public static function error_log($e = NULL){        
+    public static function error_log($e = NULL){
         if ($e !== NULL) {           
             if (get_class($e) == 'Exception') {
                 $_msg = "Code : {$e->getCode()} | " . 

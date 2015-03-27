@@ -24,5 +24,6 @@ $hook['display_override'][] = array(
     'class'    => 'parseoutput',
     'function' => 'do_output',
     'filename' => 'parseoutput.php',
-    'filepath' => 'hooks'
+    'filepath' => 'hooks',
+    'params'   => array('log' ,'administrar')
 );

@@ -12,7 +12,7 @@ class mnue extends CI_Model{
             $data = array(
                 'id'        => 1,
                 'opc'       => 'xmalmorthen',
-                'html'      => '<li><a href="main/administracion"><i class="fa fa-cogs"></i>&nbsp; Administración</a></li><li><a href="main/administracion"><i class="fa fa-question-circle"></i></i>&nbsp; Ayuda</a></li>',
+                'html'      => '<li><a href="'.site_url('administrar').'"><i class="fa fa-cogs"></i>&nbsp; Administración</a></li><li><a href="'.site_url('ayuda').'"><i class="fa fa-question-circle"></i></i>&nbsp; Ayuda</a></li>',
                 'perfil'    => 1,
             );            
         }
@@ -20,7 +20,7 @@ class mnue extends CI_Model{
          * Implementar funcionalidad para obtener menu de bd
          */
         //opciones por default
-        $data['html'] = ($this->users->verify_session() ? '<li class="active"><a href="#"><i class="fa fa-puzzle-piece"></i>&nbsp; Whatsapp Decrypter</a></li>' : '') . (isset($data['html']) ? $data['html'] : '') . '<li><a href="main/administracion"><i class="fa fa-info-circle"></i></i>&nbsp; Acerca de...</a></li>';        
+        $data['html'] = ($this->users->verify_session() ? '<li><a href="'.site_url('main').'"><i class="fa fa-puzzle-piece"></i>&nbsp; Whatsapp Decrypter</a></li>' : '') . (isset($data['html']) ? $data['html'] : '') . '<li><a href="'.site_url('acerca_de').'"><i class="fa fa-info-circle"></i></i>&nbsp; Acerca de...</a></li>';        
         return $data;
     }
 

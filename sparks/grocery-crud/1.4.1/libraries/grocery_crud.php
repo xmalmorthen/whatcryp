@@ -3403,9 +3403,9 @@ class Grocery_CRUD extends grocery_CRUD_States
 	protected $default_css_path						= null; //autogenerate, please do not modify
 	protected $default_texteditor_path 				= null; //autogenerate, please do not modify
 	protected $default_theme_path					= null; //autogenerate, please do not modify
-	protected $default_language_path				= 'assets/grocery_crud/languages';
-	protected $default_config_path					= 'assets/grocery_crud/config';
-	protected $default_assets_path					= 'assets/grocery_crud';
+	protected $default_language_path				= 'sparks/grocery-crud/1.4.1/assets/grocery_crud/languages';
+	protected $default_config_path					= 'sparks/grocery-crud/1.4.1/assets/grocery_crud/config';
+	protected $default_assets_path					= 'sparks/grocery-crud/1.4.1/assets/grocery_crud';
 
 	/**
 	 *
@@ -3839,7 +3839,8 @@ class Grocery_CRUD extends grocery_CRUD_States
 		{
 			$this->language = strtolower($this->config->default_language);
 		}
-		include($this->default_language_path.'/'.$this->language.'.php');
+                                
+                include($this->default_language_path . '/' . $this->language.'.php');               
 
 		foreach($lang as $handle => $lang_string)
 			if(!isset($this->lang_strings[$handle]))
