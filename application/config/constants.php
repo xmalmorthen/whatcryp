@@ -94,6 +94,11 @@ define("BOOTSTRAP", ASSETS. "bootstrap-3.3.4-dist/");
 define("BOOTSTRAP_CSS", BOOTSTRAP . "css/");
 define("BOOTSTRAP_JS", BOOTSTRAP . "js/");
 
+define("TABLETOOLS", ASSETS. "TableTools/");
+define("TABLETOOLS_CSS", TABLETOOLS. "css/");
+define("TABLETOOLS_JS", TABLETOOLS. "js/");
+
+
 define("DATABASE_PATH", APPPATH . "databases");
 define("PYTHON", "python ");
 define("WHATSAPP_XTRACT_FOLDER","whatsapp_xtract/");

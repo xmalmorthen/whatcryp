@@ -14,7 +14,8 @@
     <link href="<?php echo base_url(CSS . 'jquery.dataTables.css'); ?>" rel="stylesheet">    
     <link href="<?php echo base_url(CSS . 'isloading.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url(BOOTSTRAP_CSS . 'bootstrap.min.css'); ?>" rel="stylesheet">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="<?php echo base_url(TABLETOOLS_CSS . 'dataTables.tableTools.css'); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">    
     <link href="<?php echo base_url(CSS . 'cover.css'); ?>" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="<?php echo base_url(JS . 'jquery.isloading.js'); ?>"></script>
@@ -39,7 +40,7 @@
     <script src="<?php echo base_url(BOOTSTRAP_JS . 'bootstrap.min.js'); ?>"></script>
     <script src="<?php echo base_url(BOOTSTRAP_JS . 'ie10-viewport-bug-workaround.js'); ?>"></script>
     <script src="<?php echo base_url(JS . 'jquery.dataTables.min.js'); ?>"></script>
-    <script src="<?php echo base_url(JS . 'dataTables.tableTools.js'); ?>"></script>
+    <script src="<?php echo base_url(TABLETOOLS_JS . 'dataTables.tableTools.js'); ?>"></script>
     
     <script src="<?php echo base_url(JS . 'tooltip.js'); ?>"></script>
     <script type="text/javascript">
