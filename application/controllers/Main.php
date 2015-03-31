@@ -51,7 +51,12 @@ class main extends CI_Controller {
 	        $data = $params['data'];
 	        $path_to_upload = $params['path_to_upload'];
         
-	        $data['post'] = TRUE;
+	        //$data['post'] = TRUE;
+                
+                if (!file_exists(APPPATH . 'views/'. WHATSAPP_XTRACT_OUTPUT_VIEW."/{$params['view']}" . EXT)){
+                    throw new Exception ('No view');                    
+                }
+                
 	        $data['whatsapp_xtract']['view'] = $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/{$params['view']}",NULL,TRUE);
 	        @$this->uploader->remove_dir($path_to_upload, TRUE);
 	        @unlink($data['whatsapp_xtract']['output_file']. EXT);
