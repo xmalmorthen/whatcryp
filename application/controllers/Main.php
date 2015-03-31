@@ -10,8 +10,6 @@ class main extends CI_Controller {
     
     public function index()
     {
-        base_url(ASSETS . 'data/emoji')));
-        
         try
         {
             $data['post'] = FALSE;
