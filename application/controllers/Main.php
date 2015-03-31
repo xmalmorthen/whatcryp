@@ -10,6 +10,8 @@ class main extends CI_Controller {
     
     public function index()
     {
+        base_url(ASSETS . 'data/emoji')));
+        
         try
         {
             $data['post'] = FALSE;
@@ -32,6 +34,9 @@ class main extends CI_Controller {
                         redirect("main/show_result");
                     }                    
                 }
+                
+                redirect("main/show_result");
+                
             }
             $this->load->view('main',array('data' => $data));
         }
@@ -46,7 +51,11 @@ class main extends CI_Controller {
         $params = $this->session->flashdata('params');
         $data = $params['data'];
         $path_to_upload = $params['path_to_upload'];
-        $data['whatsapp_xtract']['view'] = $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/{$params['view']}",NULL,TRUE);
+        
+        $data['post'] = TRUE;
+        $data['whatsapp_xtract']['view'] = $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/550d580c3879a",NULL,TRUE);
+        
+//        $data['whatsapp_xtract']['view'] = $this->load->view(WHATSAPP_XTRACT_OUTPUT_VIEW."/{$params['view']}",NULL,TRUE);
         @$this->uploader->remove_dir($path_to_upload, TRUE);
         @unlink($data['whatsapp_xtract']['output_file']. EXT);
         

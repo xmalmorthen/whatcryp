@@ -115,6 +115,15 @@
 <script type="text/javascript">    
     $(document).ready(function() {
         hide_tables();
+        
+        $("table img").each(function() {  
+            var assets = "<?php echo ASSETS; ?>",
+                imgsrc = assets + this.src;
+            this.src = imgsrc;
+        });
+        
+        $('table img')
+        
         $('table.display').DataTable({
             "order": [[ 2, "desc" ]],
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Todo"]],
