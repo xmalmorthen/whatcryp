@@ -39,6 +39,8 @@
     <script src="<?php echo base_url(BOOTSTRAP_JS . 'bootstrap.min.js'); ?>"></script>
     <script src="<?php echo base_url(BOOTSTRAP_JS . 'ie10-viewport-bug-workaround.js'); ?>"></script>
     <script src="<?php echo base_url(JS . 'jquery.dataTables.min.js'); ?>"></script>
+    <script src="<?php echo base_url(JS . 'dataTables.tableTools.js'); ?>"></script>
+    
     <script src="<?php echo base_url(JS . 'tooltip.js'); ?>"></script>
     <script type="text/javascript">
         window.onbeforeunload = showloader;

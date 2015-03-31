@@ -121,11 +121,10 @@
 		segments = this.src.split('/'),
                 imgsrc = assets + '/' + segments[6] + '/' + segments[7] + '/' + segments[8];
             this.src = imgsrc;
-        });
-        
-        $('table img')
+        });                
         
         $('table.display').DataTable({
+            dom: 'T<"clear">lfrtip',
             "order": [[ 2, "desc" ]],
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Todo"]],
             "language": {
