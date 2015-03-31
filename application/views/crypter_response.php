@@ -114,17 +114,22 @@
 
 <script type="text/javascript">    
     $(document).ready(function() {
+        
+        var assets = "<?php echo base_url(ASSETS); ?>";
+        
         hide_tables();
         
         $("table img").each(function() {
-            var assets = "<?php echo base_url(ASSETS); ?>",
-		segments = this.src.split('/'),
+            var segments = this.src.split('/'),
                 imgsrc = assets + '/' + segments[6] + '/' + segments[7] + '/' + segments[8];
             this.src = imgsrc;
         });                
         
         $('table.display').DataTable({
             dom: 'T<"clear">lfrtip',
+            tableTools: {
+                "sSwfPath": assets + "TableTools/swf/copy_csv_xls_pdf.swf"
+            }
             "order": [[ 2, "desc" ]],
             "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Todo"]],
             "language": {
