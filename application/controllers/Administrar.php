@@ -6,10 +6,10 @@ class administrar extends CI_Controller {
     {
         parent::__construct();       
         //$this->load->database();
-        $this->load->spark( 'grocery-crud/1.4.1');
-        $this->load->library('grocery_CRUD');
-        $this->grocery_crud->set_theme('flexigrid');
-        $this->grocery_crud->set_language('spanish');
+        //$this->load->spark( 'grocery-crud/1.4.1');
+        //$this->load->library('grocery_CRUD');
+        //$this->grocery_crud->set_theme('flexigrid');
+        //$this->grocery_crud->set_language('spanish');
     }   
     
     public function index()
